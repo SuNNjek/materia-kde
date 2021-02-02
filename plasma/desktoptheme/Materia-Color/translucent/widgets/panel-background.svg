@@ -15,31 +15,36 @@
   <style id="current-color-scheme" type="text/css">
    .ColorScheme-Background {color:#181818; } .ColorScheme-ButtonBackground { color:#343434; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-Text { color:#dfdfdf; } .ColorScheme-ViewBackground { color:#242424; } .ColorScheme-NegativeText { color:#f44336; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NeutralText { color:#ff9800; }
   </style>
+  <style type="text/css">
+    .Transparent {
+        opacity: 0.75;
+    }
+  </style>
  </defs>
- <rect id="center" style="fill:currentColor" class="ColorScheme-Background" width="50" height="50" x="7" y="28"/>
+ <rect id="center" style="fill:currentColor" class="ColorScheme-Background Transparent" width="50" height="50" x="7" y="28"/>
  <g id="topleft" transform="translate(-183,-231.00083)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 190.00001,251.99982 v 7 h -7 v -2 c 0,-2.77 2.23,-5 5,-5 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="m 190.00001,251.99982 v 7 h -7 v -2 c 0,-2.77 2.23,-5 5,-5 z"/>
  </g>
  <g id="left" transform="translate(-183,-231.00083)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 183.00002,258.99981 v 50 l 7,10e-6 v -50 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="m 183.00002,258.99981 v 50 l 7,10e-6 v -50 z"/>
  </g>
  <g id="right" transform="translate(-183,-231.00084)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 247,258.99982 v 50 l -7,10e-6 v -50 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="m 247,258.99982 v 50 l -7,10e-6 v -50 z"/>
  </g>
  <g id="bottomleft" transform="translate(-183,-231.00092)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 190.00001,315.99991 v -7 h -7 v 2 c 0,2.77 2.23,5 5,5 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="m 190.00001,315.99991 v -7 h -7 v 2 c 0,2.77 2.23,5 5,5 z"/>
  </g>
  <g id="bottom" transform="translate(-183,-231.00096)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="M 189.99998,315.99995 H 240 v -7 h -50.00001 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="M 189.99998,315.99995 H 240 v -7 h -50.00001 z"/>
  </g>
  <g id="bottomright" transform="translate(-183,-231.00092)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 240,315.99991 v -7 h 7 v 2 c 0,2.77 -2.23,5 -5,5 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="m 240,315.99991 v -7 h 7 v 2 c 0,2.77 -2.23,5 -5,5 z"/>
  </g>
  <g id="topright" transform="translate(-183,-231.00083)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 240,251.99982 v 7 h 7 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="m 240,251.99982 v 7 h 7 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
  </g>
  <g id="top" transform="translate(-183,-231.00083)">
-  <path style="fill:currentColor" class="ColorScheme-Background" d="M 189.99998,251.99982 H 240 v 7 h -50.00001 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Background Transparent" d="M 189.99998,251.99982 H 240 v 7 h -50.00001 z"/>
  </g>
  <rect id="shadow-hint-right-margin" style="fill:#ff00ff" width="10" height="4" x="210" y="41"/>
  <rect id="shadow-hint-bottom-margin" style="fill:#ff00ff" width="4" height="10" x="176" y="75"/>
