@@ -11,13 +11,13 @@
  </g>
  <g id="slider-topright" transform="matrix(0.75,0,0,0.75,0.25000072,-1.249998)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="26" y="15" transform="matrix(1.3333333,0,0,1.3333333,-25.666667,-18.333333)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,3 v 4 h 2.666667 C 11.666667,4.784 11.216,3 9,3 Z"/>
-  <path style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" d="m 9,3 v 4 h 2.666667 C 11.666667,4.784 11.216,3 9,3 Z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="3" />
+  <rect style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="3" />
  </g>
  <g id="slider-bottomright" transform="matrix(0.75,0,0,0.75,0.25000072,3.250002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="26" y="31" transform="matrix(1.3333333,0,0,1.3333333,-25.666667,-24.333333)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,21 v -4 h 2.666667 c 0,2.216 -0.450667,4 -2.666667,4 z"/>
-  <path style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" d="m 9,21 v -4 h 2.666667 c 0,2.216 -0.450667,4 -2.666667,4 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="17" />
+  <rect style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="17" />
  </g>
  <g id="slider-left" transform="matrix(-0.75,0,0,1,10.750001,-1.999998)">
   <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,7 v 10 h 2.666667 V 7 Z"/>
@@ -26,13 +26,13 @@
  </g>
  <g id="slider-topleft" transform="matrix(-0.75,0,0,0.75,10.750001,-1.249998)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="19" y="15" transform="matrix(-1.3333333,0,0,1.3333333,39.666667,-18.333333)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,3 v 4 h 2.666667 C 11.666667,4.784 11.216,3 9,3 Z"/>
-  <path style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" d="m 9,3 v 4 h 2.666667 C 11.666667,4.784 11.216,3 9,3 Z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="3" />
+  <rect style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="3" />
  </g>
  <g id="slider-bottomleft" transform="matrix(-0.75,0,0,0.75,10.750001,3.250002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="19" y="31" transform="matrix(-1.3333333,0,0,1.3333333,39.666667,-24.333333)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,21 v -4 h 2.666667 c 0,2.216 -0.450667,4 -2.666667,4 z"/>
-  <path style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" d="m 9,21 v -4 h 2.666667 c 0,2.216 -0.450667,4 -2.666667,4 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="17" />
+  <rect style="fill:currentColor;opacity:0.36" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="17" />
  </g>
  <g id="slider-top" transform="matrix(0,-0.75,-0.1,0,6.7000007,10.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="1" height="4" x="24" y="15" transform="matrix(0,-10,-1.3333333,0,34.333333,257)"/>
@@ -85,11 +85,11 @@
  </g>
  <g id="sunken-slider-topright" transform="matrix(0.75,0,0,0.75,0.25000072,42.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="26" y="59" transform="matrix(1.3333333,0,0,1.3333333,-25.666667,-77)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,3 v 4 h 4 C 13,4.784 11.216,3 9,3 Z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="4" height="4" x="9" y="3" />
  </g>
  <g id="sunken-slider-bottomright" transform="matrix(0.75,0,0,0.75,0.25000072,47.250002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="26" y="75" transform="matrix(1.3333333,0,0,1.3333333,-25.666667,-83)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,21 v -4 h 4 c 0,2.216 -1.784,4 -4,4 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="4" height="4" x="9" y="17" />
  </g>
  <g id="sunken-slider-left" transform="matrix(-0.75,0,0,1,10.750001,42.000002)">
   <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,7 v 10 h 4 V 7 Z"/>
@@ -97,11 +97,11 @@
  </g>
  <g id="sunken-slider-topleft" transform="matrix(-0.75,0,0,0.75,10.750001,42.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="19" y="59" transform="matrix(-1.3333333,0,0,1.3333333,39.666667,-77)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,3 v 4 h 4 C 13,4.784 11.216,3 9,3 Z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="4" height="4" x="9" y="3" />
  </g>
  <g id="sunken-slider-bottomleft" transform="matrix(-0.75,0,0,0.75,10.750001,47.250002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="19" y="75" transform="matrix(-1.3333333,0,0,1.3333333,39.666667,-83)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,21 v -4 h 4 c 0,2.216 -1.784,4 -4,4 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="4" height="4" x="9" y="17" />
  </g>
  <g id="sunken-slider-top" transform="matrix(0,-0.75,-0.1,0,6.7000007,54.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="1" height="4" x="24" y="59" transform="matrix(0,-10,-1.3333333,0,93,257)"/>
@@ -118,13 +118,13 @@
  </g>
  <g id="mouseover-slider-topright" transform="matrix(0.75,0,0,0.75,0.25000173,20.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="26" y="59" transform="matrix(1.3333333,0,0,1.3333333,-25.666667,-77)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,3 v 4 h 2.666665 C 11.666665,4.784 11.216,3 9,3 Z"/>
-  <path style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" d="m 9,3 v 4 h 2.666665 C 11.666665,4.784 11.216,3 9,3 Z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="3" />
+  <rect style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="3" />
  </g>
  <g id="mouseover-slider-bottomright" transform="matrix(0.75,0,0,0.75,0.25000173,25.250002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="26" y="75" transform="matrix(1.3333333,0,0,1.3333333,-25.666667,-83)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,21 v -4 h 2.666665 c 0,2.216 -0.450665,4 -2.666665,4 z"/>
-  <path style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" d="m 9,21 v -4 h 2.666665 c 0,2.216 -0.450665,4 -2.666665,4 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="17" />
+  <rect style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="17" />
  </g>
  <g id="mouseover-slider-left" transform="matrix(-0.75,0,0,1,10.750002,20.000002)">
   <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,7 v 10 h 2.666668 V 7 Z"/>
@@ -133,13 +133,13 @@
  </g>
  <g id="mouseover-slider-topleft" transform="matrix(-0.75,0,0,0.75,10.750002,20.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="19" y="59" transform="matrix(-1.3333333,0,0,1.3333333,39.666667,-77)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,3 v 4 h 2.666668 C 11.666668,4.784 11.216,3 9,3 Z"/>
-  <path style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" d="m 9,3 v 4 h 2.666668 C 11.666668,4.784 11.216,3 9,3 Z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="3" />
+  <rect style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="3" />
  </g>
  <g id="mouseover-slider-bottomleft" transform="matrix(-0.75,0,0,0.75,10.750002,25.250002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="4" height="4" x="19" y="75" transform="matrix(-1.3333333,0,0,1.3333333,39.666667,-83)"/>
-  <path style="fill:currentColor" class="ColorScheme-Text" d="m 9,21 v -4 h 2.666668 c 0,2.216 -0.450668,4 -2.666668,4 z"/>
-  <path style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" d="m 9,21 v -4 h 2.666668 c 0,2.216 -0.450668,4 -2.666668,4 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2.666667" height="4" x="9" y="17" />
+  <rect style="fill:currentColor;opacity:0.15" class="ColorScheme-Background" width="2.666667" height="4" x="9" y="17" />
  </g>
  <g id="mouseover-slider-top" transform="matrix(0,-0.75,-0.1,0,6.7000017,32.750002)">
   <rect style="opacity:0.001;fill:#e4e6e8" width="1" height="4" x="24" y="59" transform="matrix(0,-10,-1.3333333,0,93,257)"/>
