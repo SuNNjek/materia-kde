@@ -21,7 +21,7 @@
    <path style="opacity:0.001" d="m 138,42.93887 v 7 h -7 v -2 c 0,-2.77 2.23,-5 5,-5 z"/>
    <path style="fill:url(#radialGradient918)" d="m 121,49.93909 h 10 v -2 c 0,-2.77 2.23,-5 5,-5 h 2 v -10 h -17 z"/>
   </g>
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 17,19.998868 v 7 h -7 v -2 c 0,-2.77 2.23,-5 5,-5 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Background"  width="7" height="7" x="10" y="20" />
   <path id="path-topleft" style="opacity:0.001" d="m 0,26.999088 h 10 v -2 c 0,-2.77 2.23,-5 5,-5 h 2 v -10 H 0 Z"/>
  </g>
  <g id="left">
@@ -33,7 +33,7 @@
  <g id="bottomright">
   <path style="opacity:0.001" d="m 67.00003,84.001002 v -7 h 7 v 2 c 0,2.77 -2.23,5 -5,5 z"/>
   <path style="fill:url(#radialGradient922)" d="m 84.00004,77.001132 h -10 v 2 c 0,2.77 -2.23,5 -5,5 h -2 v 10 h 17 z"/>
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 66.99999,83.998958 v -7 h 7 v 2 c 0,2.77 -2.23,5 -5,5 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Background" width="7" height="7" x="67" y="77" />
   <path id="path-bottomright" style="opacity:0.001" d="M 84,76.999088 H 74 v 2 c 0,2.77 -2.23,5 -5,5 h -2 v 10 h 17 z"/>
  </g>
  <g id="bottom">
@@ -59,13 +59,13 @@
  <g id="topright">
   <path style="opacity:0.001" d="m 66.99999,19.998868 v 7 h 7 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
   <path style="fill:url(#radialGradient930)" d="m 67,9.999088 v 10 h 2 c 2.77,0 5,2.23 5,5 v 2 h 10 v -17 z"/>
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 66.99999,19.998868 v 7 h 7 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Background" width="7" height="7" x="67" y="20" />
   <path id="path-topright" style="opacity:0.001" d="m 67,9.999088 v 10 h 2 c 2.77,0 5,2.23 5,5 v 2 h 10 v -17 z"/>
  </g>
  <g id="bottomleft">
   <path style="opacity:0.001" d="m 17.00001,83.998728 v -7 h -7 v 2 c 0,2.77 2.23,5 5,5 z"/>
   <path style="fill:url(#radialGradient932)" d="m 17.00001,93.998858 v -10 h -2 c -2.77,0 -5,-2.23 -5,-5 v -2 h -10 v 17 z"/>
-  <path style="fill:currentColor" class="ColorScheme-Background" d="m 17,83.998958 v -7 h -7 v 2 c 0,2.77 2.23,5 5,5 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Background" width="7" height="7" x="10" y="77" />
   <path id="path-bottomleft" style="opacity:0.001" d="m 17,93.999088 v -10 h -2 c -2.77,0 -5,-2.23 -5,-5 v -2 H 0 v 17 z"/>
  </g>
  <g id="center" transform="translate(99.177963,19.117292)">
