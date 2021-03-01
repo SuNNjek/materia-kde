@@ -4,7 +4,6 @@
 // - Suraj Mandal from https://github.com/surajmandalcell/Elegant-sddm
 // - Breeze theme by KDE Visual Design Group
 // - SDDM Team https://github.com/sddm/sddm
-
 import QtQuick 2.8
 import QtQuick.Controls 2.1
 import QtGraphicalEffects 1.0
@@ -17,8 +16,10 @@ Rectangle {
 
     LayoutMirroring.enabled: Qt.locale().textDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
-    
-    TextConstants { id: textConstants }
+
+    TextConstants {
+        id: textConstants
+    }
 
     // hack for disable autostart QtQuick.VirtualKeyboard
     Loader {
@@ -78,14 +79,35 @@ Rectangle {
 
         Item {
 
-            ImgButton {
-                id: shutdownButton
-                width: 22
+            Image {
+                id: shutdown
                 height: 22
-                normalImg: "images/system-shutdown.svg"
-                hoverImg: "images/system-shutdown-hover.svg"
-                pressImg: "images/system-shutdown-pressed.svg"
-                onClicked: sddm.powerOff()
+                width: 22
+                source: "images/system-shutdown.svg"
+                fillMode: Image.PreserveAspectFit
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onEntered: {
+                        shutdown.source = "images/system-shutdown-hover.svg"
+                        var component = Qt.createComponent(
+                                    "components/ShutdownToolTip.qml")
+                        if (component.status === Component.Ready) {
+                            var tooltip = component.createObject(shutdown)
+                            tooltip.x = -100
+                            tooltip.y = 40
+                            tooltip.destroy(600)
+                        }
+                    }
+                    onExited: {
+                        shutdown.source = "images/system-shutdown.svg"
+                    }
+                    onClicked: {
+                        shutdown.source = "images/system-shutdown-pressed.svg"
+                        sddm.powerOff()
+                    }
+                }
             }
         }
     }
@@ -95,16 +117,38 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: 60
         anchors.topMargin: 5
+
         Item {
 
-            ImgButton {
-                id: rebootButton
-                width: 22
+            Image {
+                id: reboot
                 height: 22
-                normalImg: "images/system-reboot.svg"
-                hoverImg: "images/system-reboot-hover.svg"
-                pressImg: "images/system-reboot-pressed.svg"
-                onClicked: sddm.reboot()
+                width: 22
+                source: "images/system-reboot.svg"
+                fillMode: Image.PreserveAspectFit
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onEntered: {
+                        reboot.source = "images/system-reboot-hover.svg"
+                        var component = Qt.createComponent(
+                                    "components/RebootToolTip.qml")
+                        if (component.status === Component.Ready) {
+                            var tooltip = component.createObject(reboot)
+                            tooltip.x = -100
+                            tooltip.y = 40
+                            tooltip.destroy(600)
+                        }
+                    }
+                    onExited: {
+                        reboot.source = "images/system-reboot.svg"
+                    }
+                    onClicked: {
+                        reboot.source = "images/system-reboot-pressed.svg"
+                        sddm.reboot()
+                    }
+                }
             }
         }
     }
@@ -112,26 +156,7 @@ Rectangle {
     Row {
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.rightMargin: 90
-        anchors.topMargin: 5
-        Item {
-
-            ImgButton {
-                id: suspendButton
-                width: 22
-                height: 22
-                normalImg: "images/system-suspend.svg"
-                hoverImg: "images/system-suspend-hover.svg"
-                pressImg: "images/system-suspend-pressed.svg"
-                onClicked: sddm.suspend()
-            }
-        }
-    }
-
-    Row {
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.rightMargin: 100
+        anchors.rightMargin: 70
         anchors.topMargin: 5
         Text {
             id: timelb
@@ -152,8 +177,8 @@ Rectangle {
     Row {
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.rightMargin: 150
-        anchors.topMargin: 5
+        anchors.rightMargin: 120
+        anchors.topMargin: 4
         Text {
             id: kb
             color: "#dfdfdf"
@@ -175,195 +200,245 @@ Rectangle {
         }
     }
 
-    Dialog {
-        id: dialog
+    Item {
         anchors.centerIn: parent
-        closePolicy: Popup.NoAutoClose
-        focus: true
-        visible: true
-        Material.theme: Material.Light
-        Material.accent: "#1a73e8"
+        width: dialog.width
+        height: dialog.height
 
-        Grid {
-            columns: 1
-            spacing: 10
-            verticalItemAlignment: Grid.AlignVCenter
-            horizontalItemAlignment: Grid.AlignHCenter
+        Dialog {
+            id: dialog
+            closePolicy: Popup.NoAutoClose
+            focus: true
+            visible: true
+            Material.theme: Material.Light
+            Material.accent: "#1a73e8"
 
-            // Custom ComboBox for hack colors on DropDownMenu
-            ComboBox {
-                id: user
-                height: 50
-                width: height * 7
-                model: userModel
-                textRole: "name"
-                currentIndex: userModel.lastIndex
+            Grid {
+                columns: 1
+                spacing: 10
+                verticalItemAlignment: Grid.AlignVCenter
+                horizontalItemAlignment: Grid.AlignHCenter
 
-                delegate: MenuItem {
-                    Material.theme: Material.Light
-                    Material.accent: "#1a73e8"
-                    width: ListView.view.width
-                    text: user.textRole ? (Array.isArray(
-                                               user.model) ? modelData[user.textRole] : model[user.textRole]) : modelData
-                    Material.foreground: user.currentIndex === index ? ListView.view.contentItem.Material.accent : ListView.view.contentItem.Material.foreground
-                    highlighted: user.highlightedIndex === index
-                    hoverEnabled: user.hoverEnabled
-                    onClicked: {
-                        user.currentIndex = index
-                        ulistview.currentIndex = index
-                        user.popup.close()
-                    }
-                }
-                popup: Popup {
-                    Material.theme: Material.Light
-                    Material.accent: "#1a73e8"
-                    width: parent.width
-                    height: parent.height * parent.count
-                    implicitHeight: ulistview.contentHeight
-                    margins: 0
-                    contentItem: ListView {
-                        id: ulistview
-                        clip: true
-                        anchors.fill: parent
-                        model: user.model
-                        spacing: 0
-                        highlightFollowsCurrentItem: true
-                        currentIndex: user.highlightedIndex
-                        delegate: user.delegate
-                    }
-                }
-            }
+                Column {
+                    Item {
 
-            TextField {
-                id: password
-                height: 50
-                width: height * 7
-                echoMode: TextInput.Password
-                focus: true
-                placeholderText: textConstants.password
-                onAccepted: sddm.login(user.currentText, password.text,
-                                       session.index)
-                Image {
-                    id: caps
-                    width: 24
-                    height: 24
-                    opacity: 0
-                    state: keyboard.capsLock ? "activated" : ""
-                    anchors.right: password.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.rightMargin: 10
-                    fillMode: Image.PreserveAspectFit
-                    source: "images/capslock.svg"
-                    sourceSize.width: 24
-                    sourceSize.height: 24
-
-                    states: [
-                        State {
-                            name: "activated"
-                            PropertyChanges {
-                                target: caps
-                                opacity: 1
-                            }
-                        },
-                        State {
-                            name: ""
-                            PropertyChanges {
-                                target: caps
-                                opacity: 0
-                            }
+                        Rectangle {
+                            id: mask
+                            width: 144
+                            height: 144
+                            radius: 100
+                            visible: false
                         }
-                    ]
 
-                    transitions: [
-                        Transition {
-                            to: "activated"
-                            NumberAnimation {
-                                target: caps
-                                property: "opacity"
-                                from: 0
-                                to: 1
-                                duration: imageFadeIn
-                            }
-                        },
-
-                        Transition {
-                            to: ""
-                            NumberAnimation {
-                                target: caps
-                                property: "opacity"
-                                from: 1
-                                to: 0
-                                duration: imageFadeOut
-                            }
+                        DropShadow {
+                            anchors.fill: mask
+                            width: mask.width
+                            height: mask.height
+                            horizontalOffset: 0
+                            verticalOffset: 3
+                            radius: 9.0
+                            samples: 15
+                            color: "#60000000"
+                            source: mask
                         }
-                    ]
-                }
-            }
+                    }
 
-            Keys.onPressed: {
-                if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-                    sddm.login(user.currentText, password.text, session.index)
-                    event.accepted = true
-                }
-            }
-
-            // Custom ComboBox for hack colors on DropDownMenu
-            ComboBox {
-                id: session
-                height: 50
-                width: height * 7
-                model: sessionModel
-                textRole: "name"
-                currentIndex: sessionModel.lastIndex
-
-                delegate: MenuItem {
-                    Material.theme: Material.Light
-                    Material.accent: "#1a73e8"
-                    width: ListView.view.width
-                    text: session.textRole ? (Array.isArray(
-                                                  session.model) ? modelData[session.textRole] : model[session.textRole]) : modelData
-                    Material.foreground: session.currentIndex === index ? ListView.view.contentItem.Material.accent : ListView.view.contentItem.Material.foreground
-                    highlighted: session.highlightedIndex === index
-                    hoverEnabled: session.hoverEnabled
-                    onClicked: {
-                        session.currentIndex = index
-                        slistview.currentIndex = index
-                        session.popup.close()
+                    Image {
+                        id: ava
+                        width: 144
+                        height: 144
+                        fillMode: Image.PreserveAspectCrop
+                        layer.enabled: true
+                        layer.effect: OpacityMask {
+                            maskSource: mask
+                        }
+                        source: "/home/" + user.currentText + "/.face.icon"
+                        onStatusChanged: {
+                            if (status == Image.Error)
+                                return source = "images/.face.icon"
+                        }
                     }
                 }
-                popup: Popup {
-                    Material.theme: Material.Light
-                    Material.accent: "#1a73e8"
-                    width: parent.width
-                    height: parent.height * parent.count
-                    implicitHeight: slistview.contentHeight
-                    margins: 0
-                    contentItem: ListView {
-                        id: slistview
-                        clip: true
-                        anchors.fill: parent
-                        model: session.model
-                        spacing: 0
-                        highlightFollowsCurrentItem: true
-                        currentIndex: session.highlightedIndex
-                        delegate: session.delegate
+
+                // Custom ComboBox for hack colors on DropDownMenu
+                ComboBox {
+                    id: user
+                    height: 50
+                    width: height * 7
+                    model: userModel
+                    textRole: "name"
+                    currentIndex: userModel.lastIndex
+
+                    delegate: MenuItem {
+                        Material.theme: Material.Light
+                        Material.accent: "#1a73e8"
+                        width: ulistview.width
+                        text: user.textRole ? (Array.isArray(
+                                                   user.model) ? modelData[user.textRole] : model[user.textRole]) : modelData
+                        Material.foreground: user.currentIndex === index ? ulistview.contentItem.Material.accent : ulistview.contentItem.Material.foreground
+                        highlighted: user.highlightedIndex === index
+                        hoverEnabled: user.hoverEnabled
+                        onClicked: {
+                            user.currentIndex = index
+                            ulistview.currentIndex = index
+                            user.popup.close()
+                            ava.source = ""
+                            ava.source = "/home/" + user.currentText + "/.face.icon"
+                        }
+                    }
+                    popup: Popup {
+                        Material.theme: Material.Light
+                        Material.accent: "#1a73e8"
+                        width: parent.width
+                        height: parent.height * parent.count
+                        implicitHeight: ulistview.contentHeight
+                        margins: 0
+                        contentItem: ListView {
+                            id: ulistview
+                            clip: true
+                            anchors.fill: parent
+                            model: user.model
+                            spacing: 0
+                            highlightFollowsCurrentItem: true
+                            currentIndex: user.highlightedIndex
+                            delegate: user.delegate
+                        }
                     }
                 }
-            }
 
-            Button {
-                id: login
-                
-                height: 50
-                width: height * 7
-                icon.source: "images/login.svg"
-                icon.width: 24
-                icon.height: 24
-                text: textConstants.login
-                font.bold: true
-                onClicked: sddm.login(user.currentText, password.text,
-                                      session.index)
-                highlighted: true
+                TextField {
+                    id: password
+                    height: 50
+                    width: height * 7
+                    echoMode: TextInput.Password
+                    focus: true
+                    placeholderText: textConstants.password
+                    onAccepted: sddm.login(user.currentText, password.text,
+                                           session.currentIndex)
+                    Image {
+                        id: caps
+                        width: 24
+                        height: 24
+                        opacity: 0
+                        state: keyboard.capsLock ? "activated" : ""
+                        anchors.right: password.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.rightMargin: 10
+                        fillMode: Image.PreserveAspectFit
+                        source: "images/capslock.svg"
+                        sourceSize.width: 24
+                        sourceSize.height: 24
+
+                        states: [
+                            State {
+                                name: "activated"
+                                PropertyChanges {
+                                    target: caps
+                                    opacity: 1
+                                }
+                            },
+                            State {
+                                name: ""
+                                PropertyChanges {
+                                    target: caps
+                                    opacity: 0
+                                }
+                            }
+                        ]
+
+                        transitions: [
+                            Transition {
+                                to: "activated"
+                                NumberAnimation {
+                                    target: caps
+                                    property: "opacity"
+                                    from: 0
+                                    to: 1
+                                    duration: imageFadeIn
+                                }
+                            },
+
+                            Transition {
+                                to: ""
+                                NumberAnimation {
+                                    target: caps
+                                    property: "opacity"
+                                    from: 1
+                                    to: 0
+                                    duration: imageFadeOut
+                                }
+                            }
+                        ]
+                    }
+                }
+
+                Keys.onPressed: {
+                    if (event.key === Qt.Key_Return
+                            || event.key === Qt.Key_Enter) {
+                        sddm.login(user.currentText, password.text,
+                                   session.currentIndex)
+                        event.accepted = true
+                    }
+                }
+
+                // Custom ComboBox for hack colors on DropDownMenu
+                ComboBox {
+                    id: session
+                    height: 50
+                    width: height * 7
+                    model: sessionModel
+                    textRole: "name"
+                    currentIndex: sessionModel.lastIndex
+
+                    delegate: MenuItem {
+                        Material.theme: Material.Light
+                        Material.accent: "#1a73e8"
+                        width: slistview.width
+                        text: session.textRole ? (Array.isArray(
+                                                      session.model) ? modelData[session.textRole] : model[session.textRole]) : modelData
+                        Material.foreground: session.currentIndex === index ? slistview.contentItem.Material.accent : slistview.contentItem.Material.foreground
+                        highlighted: session.highlightedIndex === index
+                        hoverEnabled: session.hoverEnabled
+                        onClicked: {
+                            session.currentIndex = index
+                            slistview.currentIndex = index
+                            session.popup.close()
+                        }
+                    }
+                    popup: Popup {
+                        Material.theme: Material.Light
+                        Material.accent: "#1a73e8"
+                        width: parent.width
+                        height: parent.height * parent.count
+                        implicitHeight: slistview.contentHeight
+                        margins: 0
+                        contentItem: ListView {
+                            id: slistview
+                            clip: true
+                            anchors.fill: parent
+                            model: session.model
+                            spacing: 0
+                            highlightFollowsCurrentItem: true
+                            currentIndex: session.highlightedIndex
+                            delegate: session.delegate
+                        }
+                    }
+                }
+
+                Button {
+                    id: login
+
+                    height: 50
+                    width: height * 7
+                    icon.source: "images/login.svg"
+                    icon.width: 24
+                    icon.height: 24
+                    text: textConstants.login
+                    font.bold: true
+                    onClicked: sddm.login(user.currentText, password.text,
+                                          session.currentIndex)
+                    highlighted: true
+                }
             }
         }
     }
